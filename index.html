@@ -7,9 +7,146 @@
     </title>
 </head>
 <body>
+
     <h1>Plasma Parameters Calculator</h1>
     <p>
-        To be added.
+        This calculator calculates plasma parameters based on input quantities, using NRL Plasma Formulary.
     </p>
+
+    <FORM NAME="input" ID="input" method=POST>
+        <TABLE border=1>
+            <TR>
+                <TD><DIV ALIGN=CENTER>Magnetic Field (G)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Density (cm^-3)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Electron Temperature (eV)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Ion Temperature (eV)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Ion Mass Number</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Charge Number</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Coulomb Logarithm</DIV></TD>
+            </TR>
+
+            <TR>
+                <TD><INPUT TYPE=TEXT NAME=B value=1000 SIZE=16 onFocus="this.form.B.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=ne value=1e13 SIZE=15 onFocus="this.form.ne.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=Te value=4 SIZE=23 onFocus="this.form.Te.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=Ti value=0.5 SIZE=20 onFocus="this.form.Ti.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=mu value=40 SIZE=15 onFocus="this.form.mu.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=Z value=1 SIZE=15 onFocus="this.form.Z.value=''"></TD>                
+                <TD><INPUT TYPE=TEXT NAME=CL value=10 SIZE=18 onFocus="this.form.CL.value=''"></TD>
+            </TR>
+        </TABLE>
+        <P>
+            <INPUT TYPE="button" VALUE="Let's see" onClick="computeform(this.form)">
+            <INPUT TYPE="reset"  VALUE="Reset" onClick="ClearForm(this.form)">
+    </FORM>
+
+    <h2>Frequencies</h2>
+    <FORM NAME="freq" id="freq" method=POST>
+        <TABLE border=1>
+            <TR>
+                <TD><DIV ALIGN=CENTER>Elec coll. rate (sec^-1)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Ion coll. rate (sec^-1)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Elec gyro-freq (Hz)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Ion gyro-freq (Hz)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Elec plasma freq (Hz)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Ion plasma freq (Hz)</DIV></TD>
+            </TR>
+            <TR>
+                <TD><INPUT TYPE=TEXT NAME=nu_e  SIZE=20 onFocus="this.form.nu_e.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=nu_i  SIZE=20 onFocus="this.form.nu_i.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=f_ce  SIZE=16 onFocus="this.form.f_ce.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=f_ci  SIZE=16 onFocus="this.form.f_ci.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=f_pe  SIZE=20 onFocus="this.form.f_pe.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=f_pi  SIZE=20 onFocus="this.form.f_pi.value=''"></TD>            
+            </TR>
+        </TABLE>
+        
+    </FORM>
+
+    <h2>Lengths</h2>
+    <form name="lengths" id="lengths" method=post>
+        <TABLE border=1>
+            <TR>
+                <TD><DIV ALIGN=CENTER>Elec gyro-radius (cm)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Ion gyro-radius (cm)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Hybrid Ion gyro-radius (cm)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Elec skin depth (cm)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Ion skin depth (cm)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Debye length (cm)</DIV></TD>
+            </TR>
+            <TR>
+                <TD><INPUT TYPE=TEXT NAME=r_ce SIZE=20 onFocus="this.form.r_ce.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=r_ci SIZE=20 onFocus="this.form.r_ci.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=r_s SIZE=25 onFocus="this.form.r_s.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=l_se SIZE=18 onFocus="this.form.l_se.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=l_si SIZE=16 onFocus="this.form.l_se.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=l_d SIZE=16 onFocus="this.form.l_d.value=''"></TD>
+            </TR>
+        </TABLE>
+    </form>
+
+    <h2>Velocities</h2>
+        <form name="velocities" id="velocities" method=post>
+            <TABLE border=1>
+                <TR>
+                    <TD><DIV ALIGN=CENTER>Elec thermal velocity (m/s)</DIV></TD>
+                    <TD><DIV ALIGN=CENTER>Ion thermal velocity (m/s)</DIV></TD>
+                    <TD><DIV ALIGN=CENTER>Ion sound speed (m/s)</DIV></TD>
+                    <TD><DIV ALIGN=CENTER>Alfven velocity (m/s)</DIV></TD>
+                </TR>
+                <TR>
+                    <TD><INPUT TYPE=TEXT NAME=v_te SIZE=23 onFocus="this.form.v_te.value=''"></TD>
+                    <TD><INPUT TYPE=TEXT NAME=v_ti SIZE=23 onFocus="this.form.v_ti.value=''"></TD>
+                    <TD><INPUT TYPE=TEXT NAME=c_s SIZE=20 onFocus="this.form.c_s.value=''"></TD>
+                    <TD><INPUT TYPE=TEXT NAME=v_A SIZE=18 onFocus="this.form.v_A.value=''"></TD>
+                </TR>
+            </TABLE>
+        </form>
+
+    <SCRIPT>
+
+        function ClearForm(form){
+            document.getElementById("input").reset();
+            document.getElementById("freq").reset();
+            document.getElementById("lengths").reset();
+            document.getElementById("velocities").reset();
+        }
+
+        function computeform(form){
+            var B = document.forms[0].B.value;
+            var ne = document.forms[0].ne.value;
+            var Te = document.forms[0].Te.value;
+            var Ti = document.forms[0].Ti.value;
+            var mu = document.forms[0].mu.value;
+            var Z = document.forms[0].Z.value;
+            var CL = document.forms[0].CL.value;
+            var en = 3;
+
+            // Frequencies
+            document.forms[1].nu_e.value = (2.91e-6*ne*CL/Math.pow(Te,1.5)).toExponential(en);
+            document.forms[1].nu_i.value = (4.8e-8*Math.pow(Z,4)*ne*CL/Math.pow(Ti,1.5)/Math.pow(mu,1.5)).toExponential(en);
+            document.forms[1].f_ce.value = (2.8e6*B).toExponential(en);
+            document.forms[1].f_ci.value = (1.52e3*B*Z/mu).toExponential(en);
+            document.forms[1].f_pe.value = (8.98e3*Math.sqrt(ne)).toExponential(en);
+            document.forms[1].f_pi.value = (2.1e2*Z*Math.sqrt(ne/mu)).toExponential(en);
+
+            // Lengths
+            document.forms[2].r_ce.value = (2.38*Math.sqrt(Te)/B).toExponential(en);
+            document.forms[2].r_ci.value = (1.02e2*Math.sqrt(Ti*mu)/B/Z).toExponential(en);
+            document.forms[2].r_s.value = (1.02e2*Math.sqrt(Te*mu)/B/Z).toExponential(en);
+            document.forms[2].l_se.value = (5.31e5/Math.sqrt(ne)).toExponential(en);
+            document.forms[2].l_si.value = (2.28e7*Math.sqrt(mu/ne)/Z).toExponential(en);
+            document.forms[2].l_d.value = (7.43e2*Math.sqrt(Te/ne)).toExponential(en);
+
+            // Velocities
+            document.forms[3].v_te.value = (4.19e5*Math.sqrt(Te)).toExponential(en);
+            document.forms[3].v_ti.value = (9.79e3*Math.sqrt(Ti/mu)).toExponential(en);
+            document.forms[3].c_s.value = (9.79e3*Math.sqrt(Z*Te/mu)).toExponential(en);
+            document.forms[3].v_A.value = (2.8e9*B/Math.sqrt(mu*ne)).toExponential(en);
+
+            return;
+        }
+    </SCRIPT>
+
 </body>
 </html>
