@@ -1,1 +1,4 @@
 theme: jekyll-theme-cayman
+
+title: [Plasma Parameters Calculator]
+description: [This calculator calculates plasma parameters based on input quantities, using NRL Plasma Formulary.]
