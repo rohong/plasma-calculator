@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica"> -->
     <link rel="stylesheet" href="style.css">
     <!-- <title>Plasma Parameters Calculator</title> -->
 </head>
@@ -22,37 +22,37 @@
                 <!-- TODO: add container class to label/input div -->
                 <div>
                     <label for="magnetic-field">Magnetic Field (G)</label>
-                    <input type="number" id="magnetic-field" name=B value=1000 onfocus="this.form.B.value=''">
+                    <input type="number" id="magnetic-field" name=B value=1000>
                 </div>
 
                 <div>
                     <label for="density">Density (cm<sup>-3</sup>)</label>
-                    <input type="text" id="density" name=ne value=1e13 onfocus="this.form.ne.value=''">
+                    <input type="text" id="density" name=ne value=1e13 >
                 </div>
 
                 <div>
                     <label for="electron-temp">Electron Temperature (eV)</label>
-                    <input type="text" id="electron-temp" name=Te value=4 onfocus="this.form.Te.value=''">
+                    <input type="text" id="electron-temp" name=Te value=4 >
                 </div>
 
                 <div>
                     <label for="ion-temp">Ion Temperature (eV)</label>
-                    <input type="text" id="ion-temp" name=Ti value=0.5 onfocus="this.form.Ti.value=''">
+                    <input type="text" id="ion-temp" name=Ti value=0.5 >
                 </div>
 
                 <div>
                     <label for="ion-mass">Ion Mass Number</label>
-                    <input type="text" id="ion-mass" name=mu value=40 onfocus="this.form.mu.value=''">
+                    <input type="text" id="ion-mass" name=mu value=40 >
                 </div>
 
                 <div>
                     <label for="charge-num">Charge Number</label>
-                    <input type="text" id="charge-num" name=Z value=1 onfocus="this.form.Z.value=''">
+                    <input type="text" id="charge-num" name=Z value=1 >
                 </div>
 
                 <div>
                     <label for="coulomb-log">Coulomb Logarithm</label>
-                    <input type="text" id="coulomb-log" name=CL value=13.6 onfocus="this.form.CL.value=''">
+                    <input type="text" id="coulomb-log" name=CL value=13.6 >
                 </div>
             </form>
         </section>
@@ -67,32 +67,32 @@
             <form class="form-container" NAME="freq" id="freq" method=POST>
                 <div>
                     <label for="elec-coll-rate">Elec coll. rate (sec<sup>-1</sup>)</label>
-                    <input type="text" id="elec-coll-rate" name=nu_e onfocus="this.form.nu_e.value=''">
+                    <input type="text" id="elec-coll-rate" name=nu_e >
                 </div>
 
                 <div>
                     <label for="ion-coll-rate">Ion coll. rate (sec<sup>-1</sup>)</label>
-                    <input type="text" id="ion-coll-rate" name=nu_i onfocus="this.form.nu_i.value=''">
+                    <input type="text" id="ion-coll-rate" name=nu_i >
                 </div>
 
                 <div>
                     <label for="elec-gyro-freq">Elec gyro-freq (Hz)</label>
-                    <input type="text" id="elec-gyro-freq" name=f_ce onfocus="this.form.f_ce.value=''">
+                    <input type="text" id="elec-gyro-freq" name=f_ce >
                 </div>
 
                 <div>
                     <label for="ion-gyro-freq">Elec gyro-freq (Hz)</label>
-                    <input type="text" id="ion-gyro-freq" name=f_ci onfocus="this.form.f_ci.value=''">
+                    <input type="text" id="ion-gyro-freq" name=f_ci >
                 </div>
 
                 <div>
                     <label for="elec-plasma-freq">Elec plasma freq (Hz)</label>
-                    <input type="text" id="elec-plasma-freq" name=f_pe onfocus="this.form.f_pe.value=''">
+                    <input type="text" id="elec-plasma-freq" name=f_pe >
                 </div>
 
                 <div>
                     <label for="ion-plasma-freq">Ion plasma freq (Hz)</label>
-                    <input type="text" id="ion-plasma-freq" name=f_pi onfocus="this.form.f_pi.value=''">
+                    <input type="text" id="ion-plasma-freq" name=f_pi >
                 </div>
             </form>
         </section>
@@ -102,27 +102,27 @@
             <form class="form-container" name="lengths" id="lengths" method=post>
                 <div>
                     <label>Elec gyro-radius (cm)</label>
-                    <input type="text" id="elec-gyro-radius" name=r_ce onfocus="this.form.r_ce.value=''">
+                    <input type="text" id="elec-gyro-radius" name=r_ce >
                 </div>
                 <div>
                     <label>Ion gyro-radius (cm)</label>
-                    <input type="text" id="ion-gyro-radius" name=r_ci onfocus="this.form.r_ci.value=''">
+                    <input type="text" id="ion-gyro-radius" name=r_ci >
                 </div>
                 <div>
                     <label>Hybrid ion gyro-radius (cm)</label>
-                    <input type="text" id="hybrid-ion-gyro-radius" name=r_s onfocus="this.form.r_s.value=''">
+                    <input type="text" id="hybrid-ion-gyro-radius" name=r_s >
                 </div>
                 <div>
                     <label>Elec mean-free-path (cm)</label>
-                    <input type="text" id="elec-mfp" name=l_se onfocus="this.form.l_se.value=''">
+                    <input type="text" id="elec-mfp" name=l_se >
                 </div>
                 <div>
                     <label>Ion mean-free-path (cm)</label>
-                    <input type="text" id="ion-mfp" name=l_si onfocus="this.form.l_si.value=''">
+                    <input type="text" id="ion-mfp" name=l_si >
                 </div>
                 <div>
                     <label>Deby length (cm)</label>
-                    <input type="text" id="Debye-length" name=l_d onfocus="this.form.l_d.value=''">
+                    <input type="text" id="Debye-length" name=l_d >
                 </div>
             </form>
         </section>
@@ -132,22 +132,22 @@
             <form class="form-container" name="velocities" id="velocities" method=post>
                 <div>
                     <label>Elec thermal velocity (m/s)</label>
-                    <input type="text" id="elec-thermal-vel" name=v_te onfocus="this.form.v_te.value=''">
+                    <input type="text" id="elec-thermal-vel" name=v_te >
                 </div>
 
                 <div>
                     <label>Ion thermal velocity (m/s)</label>
-                    <input type="text" id="ion-thermal-vel" name=v_ti onfocus="this.form.v_ti.value=''">
+                    <input type="text" id="ion-thermal-vel" name=v_ti >
                 </div>
 
                 <div>
                     <label>Ion sound speed (m/s)</label>
-                    <input type="text" id="ion-sound-vel" name=c_s onfocus="this.form.c_s.value=''">
+                    <input type="text" id="ion-sound-vel" name=c_s >
                 </div>
 
                 <div>
                     <label>Alfven velocity (m/s)</label>
-                    <input type="text" id="Alfven-vel" name=v_A onfocus="this.form.v_A.value=''">
+                    <input type="text" id="Alfven-vel" name=v_A >
                 </div>
             </form>
         </section>
