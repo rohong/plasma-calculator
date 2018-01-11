@@ -88,7 +88,7 @@
                 </div>
 
                 <div>
-                    <label for="ion-plasma-freq">Elec plasma freq(Hz)</label>
+                    <label for="ion-plasma-freq">Ion plasma freq(Hz)</label>
                     <input type="text" id="ion-plasma-freq" name=f_pi onfocus="this.form.f_pi.value=''">
                 </div>
             </form>
@@ -97,44 +97,55 @@
         <section class="form-section-container length">
             <h2>Lengths</h2>
             <form class="form-container" name="lengths" id="lengths" method=post>
-                <table border=1>
-                    <tr>
-                        <td><div ALIGN=CENTER>Elec gyro-radius (cm)</div></td>
-                        <td><div ALIGN=CENTER>Ion gyro-radius (cm)</div></td>
-                        <td><div ALIGN=CENTER>Hybrid Ion gyro-radius (cm)</div></td>
-                        <td><div ALIGN=CENTER>Elec skin depth (cm)</div></td>
-                        <td><div ALIGN=CENTER>Ion skin depth (cm)</div></td>
-                        <td><div ALIGN=CENTER>Debye length (cm)</div></td>
-                    </tr>
-                    <tr>
-                        <td><input TYPE=TEXT NAME=r_ce SIZE=20 onFocus="this.form.r_ce.value=''"></td>
-                        <td><input TYPE=TEXT NAME=r_ci SIZE=20 onFocus="this.form.r_ci.value=''"></td>
-                        <td><input TYPE=TEXT NAME=r_s SIZE=25 onFocus="this.form.r_s.value=''"></td>
-                        <td><input TYPE=TEXT NAME=l_se SIZE=18 onFocus="this.form.l_se.value=''"></td>
-                        <td><input TYPE=TEXT NAME=l_si SIZE=16 onFocus="this.form.l_se.value=''"></td>
-                        <td><input TYPE=TEXT NAME=l_d SIZE=16 onFocus="this.form.l_d.value=''"></td>
-                    </tr>
-                </table>
+                <div>
+                    <label>Elec gyro-radius (cm)</label>
+                    <input type="text" id="elec-gyro-radius" name=r_ce onfocus="this.form.r_ce.value=''">
+                </div>
+                <div>
+                    <label>Ion gyro-radius (cm)</label>
+                    <input type="text" id="ion-gyro-radius" name=r_ci onfocus="this.form.r_ci.value=''">
+                </div>
+                <div>
+                    <label>Hybrid ion gyro-radius (cm)</label>
+                    <input type="text" id="hybrid-ion-gyro-radius" name=r_s onfocus="this.form.r_s.value=''">
+                </div>
+                <div>
+                    <label>Elec skin depth (cm)</label>
+                    <input type="text" id="elec-skin-depth" name=l_se onfocus="this.form.l_se.value=''">
+                </div>
+                <div>
+                    <label>Ion skin depth (cm)</label>
+                    <input type="text" id="ion-skin-depth" name=l_si onfocus="this.form.l_si.value=''">
+                </div>
+                <div>
+                    <label>Deby length (cm)</label>
+                    <input type="text" id="Debye-length" name=l_d onfocus="this.form.l_d.value=''">
+                </div>
             </form>
         </section>
 
         <section class="form-section-container velocity">
             <h2>Velocities</h2>
             <form class="form-container" name="velocities" id="velocities" method=post>
-                <table border=1>
-                    <tr>
-                        <td><div ALIGN=CENTER>Elec thermal velocity (m/s)</div></td>
-                        <td><div ALIGN=CENTER>Ion thermal velocity (m/s)</div></td>
-                        <td><div ALIGN=CENTER>Ion sound speed (m/s)</div></td>
-                        <td><div ALIGN=CENTER>Alfven velocity (m/s)</div></td>
-                    </tr>
-                    <tr>
-                        <td><input TYPE=TEXT NAME=v_te SIZE=23 onFocus="this.form.v_te.value=''"></td>
-                        <td><input TYPE=TEXT NAME=v_ti SIZE=23 onFocus="this.form.v_ti.value=''"></td>
-                        <td><input TYPE=TEXT NAME=c_s SIZE=20 onFocus="this.form.c_s.value=''"></td>
-                        <td><input TYPE=TEXT NAME=v_A SIZE=18 onFocus="this.form.v_A.value=''"></td>
-                    </tr>
-                </table>
+                <div>
+                    <label>Elec thermal velocity (m/s)</label>
+                    <input type="text" id="elec-thermal-vel" name=v_te onfocus="this.form.v_te.value=''">
+                </div>
+
+                <div>
+                    <label>Ion thermal velocity (m/s)</label>
+                    <input type="text" id="ion-thermal-vel" name=v_ti onfocus="this.form.v_ti.value=''">
+                </div>
+
+                <div>
+                    <label>Ion sound speed (m/s)</label>
+                    <input type="text" id="ion-sound-vel" name=c_s onfocus="this.form.c_s.value=''">
+                </div>
+
+                <div>
+                    <label>Alfven velocity (m/s)</label>
+                    <input type="text" id="Alfven-vel" name=v_A onfocus="this.form.v_A.value=''">
+                </div>
             </form>
         </section>
     </main>
