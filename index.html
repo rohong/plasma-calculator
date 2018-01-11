@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
-    <style>
-        body,h1,h2,h3,h4,h5 {font-family: "Helvetica", sans-serif}
-    </style>
+    <link rel="stylesheet" href="style.css">
     <!-- <title>Plasma Parameters Calculator</title> -->
 </head>
 <body class="w3-light-grey">
@@ -16,7 +14,7 @@
         <p>This calculator calculates plasma parameters using NRL Plasma Formulary. Default input values are based on typical CSDX argon discharges.</p>
     </header>
     <h2>Input Quantities</h2>
-    <FORM NAME="input" ID="input" method=POST>
+    <form NAME="input" ID="input" method=POST>
         <TABLE border=1>
             <TR>
                 <TD><DIV ALIGN=CENTER>Magnetic Field (G)</DIV></TD>
@@ -38,13 +36,12 @@
                 <TD><INPUT TYPE=TEXT NAME=CL value=13.6 SIZE=18 onFocus="this.form.CL.value=''"></TD>
             </TR>
         </TABLE>
-        <P>
-            <INPUT TYPE="button" VALUE="Calculate" onClick="computeform(this.form);">
-            <INPUT TYPE="reset"  VALUE="Reset" onClick="ClearForm(this.form);">
-    </FORM>
+        <INPUT TYPE="button" VALUE="Calculate" onClick="computeform(this.form);">
+        <INPUT TYPE="reset"  VALUE="Reset" onClick="clearForm(this.form);">
+    </form>
 
     <h2>Frequencies</h2>
-    <FORM NAME="freq" id="freq" method=POST>
+    <form NAME="freq" id="freq" method=POST>
         <TABLE border=1>
             <TR>
                 <TD><DIV ALIGN=CENTER>Elec coll. rate (sec<sup>-1</sup>)</DIV></TD>
@@ -63,8 +60,7 @@
                 <TD><INPUT TYPE=TEXT NAME=f_pi  SIZE=20 onFocus="this.form.f_pi.value=''"></TD>            
             </TR>
         </TABLE>
-        
-    </FORM>
+    </form>
 
     <h2>Lengths</h2>
     <form name="lengths" id="lengths" method=post>
@@ -89,67 +85,24 @@
     </form>
 
     <h2>Velocities</h2>
-        <form name="velocities" id="velocities" method=post>
-            <TABLE border=1>
-                <TR>
-                    <TD><DIV ALIGN=CENTER>Elec thermal velocity (m/s)</DIV></TD>
-                    <TD><DIV ALIGN=CENTER>Ion thermal velocity (m/s)</DIV></TD>
-                    <TD><DIV ALIGN=CENTER>Ion sound speed (m/s)</DIV></TD>
-                    <TD><DIV ALIGN=CENTER>Alfven velocity (m/s)</DIV></TD>
-                </TR>
-                <TR>
-                    <TD><INPUT TYPE=TEXT NAME=v_te SIZE=23 onFocus="this.form.v_te.value=''"></TD>
-                    <TD><INPUT TYPE=TEXT NAME=v_ti SIZE=23 onFocus="this.form.v_ti.value=''"></TD>
-                    <TD><INPUT TYPE=TEXT NAME=c_s SIZE=20 onFocus="this.form.c_s.value=''"></TD>
-                    <TD><INPUT TYPE=TEXT NAME=v_A SIZE=18 onFocus="this.form.v_A.value=''"></TD>
-                </TR>
-            </TABLE>
-        </form>
+    <form name="velocities" id="velocities" method=post>
+        <TABLE border=1>
+            <TR>
+                <TD><DIV ALIGN=CENTER>Elec thermal velocity (m/s)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Ion thermal velocity (m/s)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Ion sound speed (m/s)</DIV></TD>
+                <TD><DIV ALIGN=CENTER>Alfven velocity (m/s)</DIV></TD>
+            </TR>
+            <TR>
+                <TD><INPUT TYPE=TEXT NAME=v_te SIZE=23 onFocus="this.form.v_te.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=v_ti SIZE=23 onFocus="this.form.v_ti.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=c_s SIZE=20 onFocus="this.form.c_s.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=v_A SIZE=18 onFocus="this.form.v_A.value=''"></TD>
+            </TR>
+        </TABLE>
+    </form>
 
-    <SCRIPT>
 
-        function ClearForm(form){
-            document.getElementById("input").reset();
-            document.getElementById("freq").reset();
-            document.getElementById("lengths").reset();
-            document.getElementById("velocities").reset();
-        }
-
-        function computeform(form){
-            var B = document.forms[0].B.value;
-            var ne = document.forms[0].ne.value;
-            var Te = document.forms[0].Te.value;
-            var Ti = document.forms[0].Ti.value;
-            var mu = document.forms[0].mu.value;
-            var Z = document.forms[0].Z.value;
-            var CL = document.forms[0].CL.value;
-            var en = 3;
-
-            // Frequencies
-            document.forms[1].nu_e.value = (2.91e-6*ne*CL/Math.pow(Te,1.5)).toExponential(en);
-            document.forms[1].nu_i.value = (4.8e-8*Math.pow(Z,4)*ne*CL/Math.pow(Ti,1.5)/Math.pow(mu,1.5)).toExponential(en);
-            document.forms[1].f_ce.value = (2.8e6*B).toExponential(en);
-            document.forms[1].f_ci.value = (1.52e3*B*Z/mu).toExponential(en);
-            document.forms[1].f_pe.value = (8.98e3*Math.sqrt(ne)).toExponential(en);
-            document.forms[1].f_pi.value = (2.1e2*Z*Math.sqrt(ne/mu)).toExponential(en);
-
-            // Lengths
-            document.forms[2].r_ce.value = (2.38*Math.sqrt(Te)/B).toExponential(en);
-            document.forms[2].r_ci.value = (1.02e2*Math.sqrt(Ti*mu)/B/Z).toExponential(en);
-            document.forms[2].r_s.value = (1.02e2*Math.sqrt(Te*mu)/B/Z).toExponential(en);
-            document.forms[2].l_se.value = (5.31e5/Math.sqrt(ne)).toExponential(en);
-            document.forms[2].l_si.value = (2.28e7*Math.sqrt(mu/ne)/Z).toExponential(en);
-            document.forms[2].l_d.value = (7.43e2*Math.sqrt(Te/ne)).toExponential(en);
-
-            // Velocities
-            document.forms[3].v_te.value = (4.19e5*Math.sqrt(Te)).toExponential(en);
-            document.forms[3].v_ti.value = (9.79e3*Math.sqrt(Ti/mu)).toExponential(en);
-            document.forms[3].c_s.value = (9.79e3*Math.sqrt(Z*Te/mu)).toExponential(en);
-            document.forms[3].v_A.value = (2.8e9*B/Math.sqrt(mu*ne)).toExponential(en);
-
-            return;
-        }
-    </SCRIPT>
-
+<script src="calculator.js"></script>
 </body>
 </html>
