@@ -17,7 +17,7 @@ function computeform(form){
 
     // Frequencies
     document.forms[1].nu_e.value = (2.91e-6*ne*CL/Math.pow(Te,1.5)).toExponential(en);
-    document.forms[1].nu_i.value = (4.8e-8*Math.pow(Z,4)*ne*CL/Math.pow(Ti,1.5)/Math.pow(mu,1.5)).toExponential(en);
+    document.forms[1].nu_i.value = (4.8e-8*Math.pow(Z,4)*ne*CL*Math.pow(Ti, -1.5) * Math.pow(mu, -0.5)).toExponential(en);
     document.forms[1].f_ce.value = (2.8e6*B).toExponential(en);
     document.forms[1].f_ci.value = (1.52e3*B*Z/mu).toExponential(en);
     document.forms[1].f_pe.value = (8.98e3*Math.sqrt(ne)).toExponential(en);
@@ -27,8 +27,8 @@ function computeform(form){
     document.forms[2].r_ce.value = (2.38*Math.sqrt(Te)/B).toExponential(en);
     document.forms[2].r_ci.value = (1.02e2*Math.sqrt(Ti*mu)/B/Z).toExponential(en);
     document.forms[2].r_s.value = (1.02e2*Math.sqrt(Te*mu)/B/Z).toExponential(en);
-    document.forms[2].l_se.value = (5.31e5/Math.sqrt(ne)).toExponential(en);
-    document.forms[2].l_si.value = (2.28e7*Math.sqrt(mu/ne)/Z).toExponential(en);
+    document.forms[2].l_se.value = (4.19e7*Math.sqrt(Te)/(2.91e-6*ne*CL/Math.pow(Te,1.5))).toExponential(en);
+    document.forms[2].l_si.value = (9.79e5*Math.sqrt(Ti/mu)/(4.8e-8*Math.pow(Z,4)*ne*CL*Math.pow(Ti,-1.5)*Math.pow(mu,-0.5))).toExponential(en);
     document.forms[2].l_d.value = (7.43e2*Math.sqrt(Te/ne)).toExponential(en);
 
     // Velocities
