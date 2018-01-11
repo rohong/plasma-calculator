@@ -10,96 +10,96 @@
 </head>
 <body class="w3-light-grey">
     <header class="w3-container w3-center w3-padding-32"> 
-    <h1><b>Plasma Parameters Calculator</b></h1>
+        <h1><b>Plasma Parameters Calculator</b></h1>
         <p>This calculator calculates plasma parameters using NRL Plasma Formulary. Default input values are based on typical CSDX argon discharges.</p>
     </header>
     <h2>Input Quantities</h2>
     <form NAME="input" ID="input" method=POST>
-        <TABLE border=1>
-            <TR>
-                <TD><DIV ALIGN=CENTER>Magnetic Field (G)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Density (cm<sup>-3</sup>)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Electron Temperature (eV)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Ion Temperature (eV)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Ion Mass Number</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Charge Number</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Coulomb Logarithm</DIV></TD>
-            </TR>
+        <table border=1>
+            <tr>
+                <td><div ALIGN=CENTER>Magnetic Field (G)</div></td>
+                <td><div ALIGN=CENTER>Density (cm<sup>-3</sup>)</div></td>
+                <td><div ALIGN=CENTER>Electron Temperature (eV)</div></td>
+                <td><div ALIGN=CENTER>Ion Temperature (eV)</div></td>
+                <td><div ALIGN=CENTER>Ion Mass Number</div></td>
+                <td><div ALIGN=CENTER>Charge Number</div></td>
+                <td><div ALIGN=CENTER>Coulomb Logarithm</div></td>
+            </tr>
 
-            <TR>
-                <TD><INPUT TYPE=TEXT NAME=B value=1000 SIZE=16 onFocus="this.form.B.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=ne value=1e13 SIZE=12 onFocus="this.form.ne.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=Te value=4 SIZE=20 onFocus="this.form.Te.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=Ti value=0.5 SIZE=18 onFocus="this.form.Ti.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=mu value=40 SIZE=15 onFocus="this.form.mu.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=Z value=1 SIZE=15 onFocus="this.form.Z.value=''"></TD>                
-                <TD><INPUT TYPE=TEXT NAME=CL value=13.6 SIZE=18 onFocus="this.form.CL.value=''"></TD>
-            </TR>
-        </TABLE>
-        <INPUT TYPE="button" VALUE="Calculate" onClick="computeform(this.form);">
-        <INPUT TYPE="reset"  VALUE="Reset" onClick="clearForm(this.form);">
+            <tr>
+                <td><input TYPE=TEXT NAME=B value=1000 SIZE=16 onFocus="this.form.B.value=''"></td>
+                <td><input TYPE=TEXT NAME=ne value=1e13 SIZE=12 onFocus="this.form.ne.value=''"></td>
+                <td><input TYPE=TEXT NAME=Te value=4 SIZE=20 onFocus="this.form.Te.value=''"></td>
+                <td><input TYPE=TEXT NAME=Ti value=0.5 SIZE=18 onFocus="this.form.Ti.value=''"></td>
+                <td><input TYPE=TEXT NAME=mu value=40 SIZE=15 onFocus="this.form.mu.value=''"></td>
+                <td><input TYPE=TEXT NAME=Z value=1 SIZE=15 onFocus="this.form.Z.value=''"></td>                
+                <td><input TYPE=TEXT NAME=CL value=13.6 SIZE=18 onFocus="this.form.CL.value=''"></td>
+            </tr>
+        </table>
+        <input TYPE="button" VALUE="Calculate" onClick="computeform(this.form);">
+        <input TYPE="reset"  VALUE="Reset" onClick="clearForm(this.form);">
     </form>
 
     <h2>Frequencies</h2>
     <form NAME="freq" id="freq" method=POST>
-        <TABLE border=1>
-            <TR>
-                <TD><DIV ALIGN=CENTER>Elec coll. rate (sec<sup>-1</sup>)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Ion coll. rate (sec<sup>-1</sup>)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Elec gyro-freq (Hz)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Ion gyro-freq (Hz)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Elec plasma freq (Hz)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Ion plasma freq (Hz)</DIV></TD>
-            </TR>
-            <TR>
-                <TD><INPUT TYPE=TEXT NAME=nu_e  SIZE=20 onFocus="this.form.nu_e.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=nu_i  SIZE=20 onFocus="this.form.nu_i.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=f_ce  SIZE=16 onFocus="this.form.f_ce.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=f_ci  SIZE=16 onFocus="this.form.f_ci.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=f_pe  SIZE=20 onFocus="this.form.f_pe.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=f_pi  SIZE=20 onFocus="this.form.f_pi.value=''"></TD>            
-            </TR>
-        </TABLE>
+        <table border=1>
+            <tr>
+                <td><div ALIGN=CENTER>Elec coll. rate (sec<sup>-1</sup>)</div></td>
+                <td><div ALIGN=CENTER>Ion coll. rate (sec<sup>-1</sup>)</div></td>
+                <td><div ALIGN=CENTER>Elec gyro-freq (Hz)</div></td>
+                <td><div ALIGN=CENTER>Ion gyro-freq (Hz)</div></td>
+                <td><div ALIGN=CENTER>Elec plasma freq (Hz)</div></td>
+                <td><div ALIGN=CENTER>Ion plasma freq (Hz)</div></td>
+            </tr>
+            <tr>
+                <td><input TYPE=TEXT NAME=nu_e  SIZE=20 onFocus="this.form.nu_e.value=''"></td>
+                <td><input TYPE=TEXT NAME=nu_i  SIZE=20 onFocus="this.form.nu_i.value=''"></td>
+                <td><input TYPE=TEXT NAME=f_ce  SIZE=16 onFocus="this.form.f_ce.value=''"></td>
+                <td><input TYPE=TEXT NAME=f_ci  SIZE=16 onFocus="this.form.f_ci.value=''"></td>
+                <td><input TYPE=TEXT NAME=f_pe  SIZE=20 onFocus="this.form.f_pe.value=''"></td>
+                <td><input TYPE=TEXT NAME=f_pi  SIZE=20 onFocus="this.form.f_pi.value=''"></td>            
+            </tr>
+        </table>
     </form>
 
     <h2>Lengths</h2>
     <form name="lengths" id="lengths" method=post>
-        <TABLE border=1>
-            <TR>
-                <TD><DIV ALIGN=CENTER>Elec gyro-radius (cm)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Ion gyro-radius (cm)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Hybrid Ion gyro-radius (cm)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Elec skin depth (cm)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Ion skin depth (cm)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Debye length (cm)</DIV></TD>
-            </TR>
-            <TR>
-                <TD><INPUT TYPE=TEXT NAME=r_ce SIZE=20 onFocus="this.form.r_ce.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=r_ci SIZE=20 onFocus="this.form.r_ci.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=r_s SIZE=25 onFocus="this.form.r_s.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=l_se SIZE=18 onFocus="this.form.l_se.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=l_si SIZE=16 onFocus="this.form.l_se.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=l_d SIZE=16 onFocus="this.form.l_d.value=''"></TD>
-            </TR>
-        </TABLE>
+        <table border=1>
+            <tr>
+                <td><div ALIGN=CENTER>Elec gyro-radius (cm)</div></td>
+                <td><div ALIGN=CENTER>Ion gyro-radius (cm)</div></td>
+                <td><div ALIGN=CENTER>Hybrid Ion gyro-radius (cm)</div></td>
+                <td><div ALIGN=CENTER>Elec skin depth (cm)</div></td>
+                <td><div ALIGN=CENTER>Ion skin depth (cm)</div></td>
+                <td><div ALIGN=CENTER>Debye length (cm)</div></td>
+            </tr>
+            <tr>
+                <td><input TYPE=TEXT NAME=r_ce SIZE=20 onFocus="this.form.r_ce.value=''"></td>
+                <td><input TYPE=TEXT NAME=r_ci SIZE=20 onFocus="this.form.r_ci.value=''"></td>
+                <td><input TYPE=TEXT NAME=r_s SIZE=25 onFocus="this.form.r_s.value=''"></td>
+                <td><input TYPE=TEXT NAME=l_se SIZE=18 onFocus="this.form.l_se.value=''"></td>
+                <td><input TYPE=TEXT NAME=l_si SIZE=16 onFocus="this.form.l_se.value=''"></td>
+                <td><input TYPE=TEXT NAME=l_d SIZE=16 onFocus="this.form.l_d.value=''"></td>
+            </tr>
+        </table>
     </form>
 
     <h2>Velocities</h2>
     <form name="velocities" id="velocities" method=post>
-        <TABLE border=1>
-            <TR>
-                <TD><DIV ALIGN=CENTER>Elec thermal velocity (m/s)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Ion thermal velocity (m/s)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Ion sound speed (m/s)</DIV></TD>
-                <TD><DIV ALIGN=CENTER>Alfven velocity (m/s)</DIV></TD>
-            </TR>
-            <TR>
-                <TD><INPUT TYPE=TEXT NAME=v_te SIZE=23 onFocus="this.form.v_te.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=v_ti SIZE=23 onFocus="this.form.v_ti.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=c_s SIZE=20 onFocus="this.form.c_s.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=v_A SIZE=18 onFocus="this.form.v_A.value=''"></TD>
-            </TR>
-        </TABLE>
+        <table border=1>
+            <tr>
+                <td><div ALIGN=CENTER>Elec thermal velocity (m/s)</div></td>
+                <td><div ALIGN=CENTER>Ion thermal velocity (m/s)</div></td>
+                <td><div ALIGN=CENTER>Ion sound speed (m/s)</div></td>
+                <td><div ALIGN=CENTER>Alfven velocity (m/s)</div></td>
+            </tr>
+            <tr>
+                <td><input TYPE=TEXT NAME=v_te SIZE=23 onFocus="this.form.v_te.value=''"></td>
+                <td><input TYPE=TEXT NAME=v_ti SIZE=23 onFocus="this.form.v_ti.value=''"></td>
+                <td><input TYPE=TEXT NAME=c_s SIZE=20 onFocus="this.form.c_s.value=''"></td>
+                <td><input TYPE=TEXT NAME=v_A SIZE=18 onFocus="this.form.v_A.value=''"></td>
+            </tr>
+        </table>
     </form>
 
 
