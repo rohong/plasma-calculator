@@ -2,17 +2,20 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>
-        Plasma Parameters Calculator
-    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"> -->
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    </style>
+    <!-- <title>Plasma Parameters Calculator</title> -->
 </head>
-<body>
-
-    <h1>Plasma Parameters Calculator</h1>
-    <p>
-        This calculator calculates plasma parameters based on input quantities, using NRL Plasma Formulary.
-    </p>
-
+<body class="w3-light-grey">
+    <header class="w3-container w3-center w3-padding-32"> 
+    <h1><b>Plasma Parameters Calculator</b></h1>
+        <p>This calculator calculates plasma parameters using NRL Plasma Formulary. Default input values are based on typical CSDX argon discharges.</p>
+    </header>
+    <h1>Input Quantities</h1>
     <FORM NAME="input" ID="input" method=POST>
         <TABLE border=1>
             <TR>
@@ -27,9 +30,9 @@
 
             <TR>
                 <TD><INPUT TYPE=TEXT NAME=B value=1000 SIZE=16 onFocus="this.form.B.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=ne value=1e13 SIZE=15 onFocus="this.form.ne.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=Te value=4 SIZE=23 onFocus="this.form.Te.value=''"></TD>
-                <TD><INPUT TYPE=TEXT NAME=Ti value=0.5 SIZE=20 onFocus="this.form.Ti.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=ne value=1e13 SIZE=12 onFocus="this.form.ne.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=Te value=4 SIZE=20 onFocus="this.form.Te.value=''"></TD>
+                <TD><INPUT TYPE=TEXT NAME=Ti value=0.5 SIZE=18 onFocus="this.form.Ti.value=''"></TD>
                 <TD><INPUT TYPE=TEXT NAME=mu value=40 SIZE=15 onFocus="this.form.mu.value=''"></TD>
                 <TD><INPUT TYPE=TEXT NAME=Z value=1 SIZE=15 onFocus="this.form.Z.value=''"></TD>                
                 <TD><INPUT TYPE=TEXT NAME=CL value=13.6 SIZE=18 onFocus="this.form.CL.value=''"></TD>
